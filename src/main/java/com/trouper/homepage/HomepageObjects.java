@@ -64,6 +64,8 @@ public class HomepageObjects implements Locators {
         Assert.assertEquals("https://uat.trouper.com/cat/food/freeze-dried-food", driver.getCurrentUrl());
     }
 
+    void verify
+
 
     void closeBrowser(){
         System.out.println("Closing the browser");
