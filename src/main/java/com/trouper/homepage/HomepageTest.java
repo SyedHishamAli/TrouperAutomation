@@ -27,9 +27,20 @@ public class HomepageTest extends HomepageObjects{
     void topCategories() throws InterruptedException {
         hp.verifyTopcategories();
     }
-
+    @Test(description = "To validate Loyalty Banner is visible as per the design", priority = 5, groups = {"Smoke", "Regression"})
+    void loyaltyBanners(){
+        hp.verifyloyaltyBanners();
+    }
+    @Test(description = "To validate recommended products and click on product.", priority = 6, groups = {"Regression"})
+    void recommendedProd() throws InterruptedException {
+        hp.recommendedProducts();
+    }
+    @Test(description = "To validate the Moopet banner", priority=6, groups = {"Regression"})
+    void insuranceBanner(){
+        hp.verifyInsurance();
+    }
     @AfterMethod
-    void tearDown(){
+    void tearDown() {
         hp.closeBrowser();
     }
 }

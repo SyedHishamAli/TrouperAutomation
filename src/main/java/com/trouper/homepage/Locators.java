@@ -14,7 +14,10 @@ public interface Locators {
     String newPetSupplies="//h2[text(), \"New pet supplies in stock\"]";
     String brandBanners="//div[@class=\"home-brand-banners\"]";
     String serviceCards="//div[@class=\"home-services-cards bg-image-6pemc\"]";
-    String loyaltyBanner="data-pb-style=\"M9GKMYA\"";
+    String loyaltyBanner="//img[@data-pb-style=\"M0LVJYU\"]";
+    String recommendedProducts="//h2[text()=\"Recommended  products\"]/parent::div[@data-pb-style=\"RVS1P93\"]";
+    String insuranceBanner="//img[@data-pb-style=\"BTH0U6A\"]";
+    String productClick="//img[@alt=\"Chip Chops Dog Treats - Diced Chicken\"]";
 
 
     }

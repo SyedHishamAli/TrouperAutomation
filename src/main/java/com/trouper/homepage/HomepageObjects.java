@@ -40,7 +40,6 @@ public class HomepageObjects implements Locators {
         searchInput.sendKeys("Dog");
         searchInput.click();
     }
-
     void verifyAspotbanner() throws InterruptedException {
         Thread.sleep(10000);
 //        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(aspotBanner1)));
@@ -50,7 +49,6 @@ public class HomepageObjects implements Locators {
         WebElement aspotbanner2=driver.findElement(By.xpath(aspotBanner2));
         aspotbanner2.isDisplayed();
     }
-
     void verifyTopcategories() throws InterruptedException {
         Thread.sleep(10000);
         WebElement topCatrgoriesSection= driver.findElement(By.xpath(topCategories));
@@ -63,10 +61,28 @@ public class HomepageObjects implements Locators {
         Thread.sleep(3000);
         Assert.assertEquals("https://uat.trouper.com/cat/food/freeze-dried-food", driver.getCurrentUrl());
     }
+    void verifyloyaltyBanners(){
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(loyaltyBanner)));
+        WebElement Loyaltyban=driver.findElement(By.xpath(loyaltyBanner));
+        Loyaltyban.isDisplayed();
+    }
+    void recommendedProducts() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(recommendedProducts)));
+        WebElement recProducts=driver.findElement(By.xpath(recommendedProducts));
+        recProducts.isDisplayed();
 
-    void verify
+        Thread.sleep(30000);
+        WebElement clickProduct=driver.findElement(By.xpath(productClick));
+        clickProduct.click();
 
-
+        Thread.sleep(30000);
+        Assert.assertEquals("https://uat.trouper.com/chip-chops-dog-treats-diced-chicken-70-gms", "https://uat.trouper.com/chip-chops-dog-treats-diced-chicken-70-gms");
+    }
+    void verifyInsurance(){
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(insuranceBanner)));
+        WebElement insbanner=driver.findElement(By.xpath(insuranceBanner));
+        insbanner.isDisplayed();
+    }
     void closeBrowser(){
         System.out.println("Closing the browser");
         driver.quit();
