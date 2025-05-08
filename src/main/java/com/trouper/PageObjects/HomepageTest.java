@@ -1,12 +1,10 @@
 package com.trouper.homepage;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class HomepageTest extends HomepageObjects{
     HomepageObjects hp=new HomepageObjects();
 
-    @BeforeMethod
+    @BeforeClass
     void setup(){
        hp.initiateSite();
     }
@@ -28,19 +26,21 @@ public class HomepageTest extends HomepageObjects{
         hp.verifyTopcategories();
     }
     @Test(description = "To validate Loyalty Banner is visible as per the design", priority = 5, groups = {"Smoke", "Regression"})
-    void loyaltyBanners(){
+    void loyaltyBanners() throws InterruptedException {
         hp.verifyloyaltyBanners();
     }
     @Test(description = "To validate recommended products and click on product.", priority = 6, groups = {"Regression"})
     void recommendedProd() throws InterruptedException {
         hp.recommendedProducts();
     }
-    @Test(description = "To validate the Moopet banner", priority=6, groups = {"Regression"})
+    @Test(description = "To validate the Moopet banner", priority=7, groups = {"Regression"})
     void insuranceBanner(){
         hp.verifyInsurance();
     }
-    @AfterMethod
+    @AfterClass
     void tearDown() {
         hp.closeBrowser();
     }
+
+
 }

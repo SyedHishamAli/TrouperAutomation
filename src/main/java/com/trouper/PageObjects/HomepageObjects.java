@@ -23,6 +23,7 @@ public class HomepageObjects implements Locators {
         driver.get("https://uat.trouper.com/");
         driver.manage().window().fullscreen();
          wait=new WebDriverWait(driver, Duration.ofSeconds(20));
+
     }
 
     void  verifyLogo() throws InterruptedException {
@@ -61,8 +62,9 @@ public class HomepageObjects implements Locators {
         Thread.sleep(3000);
         Assert.assertEquals("https://uat.trouper.com/cat/food/freeze-dried-food", driver.getCurrentUrl());
     }
-    void verifyloyaltyBanners(){
+    void verifyloyaltyBanners() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(loyaltyBanner)));
+        Thread.sleep(4000);
         WebElement Loyaltyban=driver.findElement(By.xpath(loyaltyBanner));
         Loyaltyban.isDisplayed();
     }
