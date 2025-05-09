@@ -1,9 +1,8 @@
-package com.trouper.homepage;
-
-import org.openqa.selenium.WebDriver;
+package com.trouper.PageObjects;
 
 public interface Locators {
 
+    //----------------------------------------------Homepage elements----------------------------------------------------------------------
     String logoElement="//img[@alt=\"trouper-logo\"]";
     String searchElement="//input[@id=\"search-field\"]";
     String aspotBanner1="//img[@data-pb-style=\"DMQ2HCV\"]";
@@ -18,6 +17,17 @@ public interface Locators {
     String recommendedProducts="//h2[text()=\"Recommended  products\"]/parent::div[@data-pb-style=\"RVS1P93\"]";
     String insuranceBanner="//img[@data-pb-style=\"BTH0U6A\"]";
     String productClick="//img[@alt=\"Chip Chops Dog Treats - Diced Chicken\"]";
+
+    //-------------------------------------------------Login Elements------------------------------------------------------------------------------
+
+    String myaccount="//button[@id=\"myAccount\"]";
+    String myaccountDropdown="//div[@class=\"myaccount_dropdown_wrapper\"]";
+    String loginCTA="";
+
+
+
+
+
 
 
     }

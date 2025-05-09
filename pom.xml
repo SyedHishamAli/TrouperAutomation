@@ -34,6 +34,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <properties>

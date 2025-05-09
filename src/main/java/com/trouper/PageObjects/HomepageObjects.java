@@ -1,4 +1,4 @@
-package com.trouper.homepage;
+package com.trouper.PageObjects;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -17,13 +17,12 @@ public class HomepageObjects implements Locators {
     WebDriver driver;
     WebDriverWait wait;
 
-    void initiateSite(){
+    HomepageObjects(){
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         driver.get("https://uat.trouper.com/");
         driver.manage().window().fullscreen();
          wait=new WebDriverWait(driver, Duration.ofSeconds(20));
-
     }
 
     void  verifyLogo() throws InterruptedException {
