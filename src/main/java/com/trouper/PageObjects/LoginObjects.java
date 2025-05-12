@@ -39,8 +39,31 @@ public class LoginObjects implements Locators{
     }
 
     public void loginCTA(){
-        
+        wait.until(driver -> driver.findElement(By.xpath(loginCTA)));
+        WebElement loginButton= driver.findElement(By.xpath(loginCTA));
+        loginButton.click();
+
+        wait.until(driver -> driver.findElement(By.xpath(loginPopup)));
+        WebElement loginPop= driver.findElement(By.xpath(loginPopup));
+        loginPop.isDisplayed();
+
     }
+    public void validEmailInput(String email){
+        wait.until(driver -> driver.findElement(By.xpath(emailInput)));
+        WebElement enterEmail= driver.findElement(By.xpath(emailInput));
+        enterEmail.sendKeys(email);
+
+        wait.until(driver -> driver.findElement(By.xpath(continueCTA)));
+        WebElement continueClick= driver.findElement(By.xpath(continueCTA));
+        continueClick.click();
+    }
+
+    public void validPasswordInput(String password){
+        wait.until(driver -> driver.findElement(By.xpath(passwordToggle)));
+        WebElement clickToggle=driver.findElement(By.xpath(passwordToggle));
+    }
+
+
     public void closeBrowser(){
         System.out.println("Closing the browser");
         driver.quit();

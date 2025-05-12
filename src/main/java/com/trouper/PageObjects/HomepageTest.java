@@ -4,7 +4,6 @@ import org.testng.annotations.*;
 public class HomepageTest extends HomepageObjects{
     HomepageObjects hp=new HomepageObjects();
 
-
     @Test(description="To validate the Logo click", priority = 1, groups = {"Smoke"})
     void validateLogo() throws InterruptedException {
         verifyLogo();
@@ -33,6 +32,7 @@ public class HomepageTest extends HomepageObjects{
     void insuranceBanner(){
         verifyInsurance();
     }
+
     @AfterClass
     void tearDown() {
         hp.closeBrowser();

@@ -22,7 +22,16 @@ public interface Locators {
 
     String myaccount="//button[@id=\"myAccount\"]";
     String myaccountDropdown="//div[@class=\"myaccount_dropdown_wrapper\"]";
-    String loginCTA="";
+    String loginCTA="//a[@id=\"register_signin\"]";
+    String loginPopup="//div[@class=\"Popup-Content \"]";
+    String emailInput="id=\"emaillogin\"";
+    String continueCTA="//button[contains(text(), \"Continue\")]";
+    String passwordToggle="//button[contains(text(), \"Log In with password\")]";
+    String passInput="//input[@type=\"password\"]";
+
+
+
+
 
 
 
