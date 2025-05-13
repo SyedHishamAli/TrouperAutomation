@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 
 import java.time.Duration;
 
@@ -27,6 +28,20 @@ public class LoginObjects implements Locators{
                 .withTimeout(Duration.ofSeconds(20))
                 .pollingEvery(Duration.ofSeconds(2))
                 .ignoring(NoSuchElementException.class);
+    }
+
+    @DataProvider(name = "emailProvider")
+    public Object[][] emailProvider(){
+        return new Object[][]{
+                {"syed@yopmail.com"}
+        };
+    }
+
+    @DataProvider(name = "passProvider")
+    public Object[][] passwordProvider(){
+        return new Object[][]{
+                {"Welcome@1"},
+        };
     }
 
     public void accountDropdown(){
@@ -51,6 +66,7 @@ public class LoginObjects implements Locators{
         loginPop.isDisplayed();
 
     }
+
     public void emailInput(String email){
         wait.until(driver -> driver.findElement(By.id(emailInput)));
         WebElement enterEmail= driver.findElement(By.id(emailInput));
@@ -61,6 +77,7 @@ public class LoginObjects implements Locators{
             WebElement continueClick= driver.findElement(By.xpath(continueCTA));
             continueClick.click();
         }else{
+            wait.until(driver -> driver.findElement(By.xpath(emailError)));
             WebElement invalidEmail= driver.findElement(By.xpath(emailError));
             Assert.assertEquals(invalidEmail.getText(), "Please check the email ID entered.");
 
