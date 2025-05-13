@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -38,8 +39,10 @@ public class LoginObjects implements Locators{
         myAccountDropdown.isDisplayed();
     }
 
-    public void loginCTA(){
-        wait.until(driver -> driver.findElement(By.xpath(loginCTA)));
+    public void loginCTA() throws InterruptedException {
+
+        Thread.sleep(2000);
+//        wait.until(driver -> driver.findElement(By.xpath(loginCTA)));
         WebElement loginButton= driver.findElement(By.xpath(loginCTA));
         loginButton.click();
 
@@ -48,20 +51,50 @@ public class LoginObjects implements Locators{
         loginPop.isDisplayed();
 
     }
-    public void validEmailInput(String email){
-        wait.until(driver -> driver.findElement(By.xpath(emailInput)));
-        WebElement enterEmail= driver.findElement(By.xpath(emailInput));
+    public void emailInput(String email){
+        wait.until(driver -> driver.findElement(By.id(emailInput)));
+        WebElement enterEmail= driver.findElement(By.id(emailInput));
         enterEmail.sendKeys(email);
 
-        wait.until(driver -> driver.findElement(By.xpath(continueCTA)));
-        WebElement continueClick= driver.findElement(By.xpath(continueCTA));
-        continueClick.click();
+        if (email.contentEquals("syed@yopmail.com")) {
+            wait.until(driver -> driver.findElement(By.xpath(continueCTA)));
+            WebElement continueClick= driver.findElement(By.xpath(continueCTA));
+            continueClick.click();
+        }else{
+            WebElement invalidEmail= driver.findElement(By.xpath(emailError));
+            Assert.assertEquals(invalidEmail.getText(), "Please check the email ID entered.");
+
+        }
     }
 
-    public void validPasswordInput(String password){
+    public void passwordInput(String password){
         wait.until(driver -> driver.findElement(By.xpath(passwordToggle)));
         WebElement clickToggle=driver.findElement(By.xpath(passwordToggle));
+        clickToggle.click();
+
+        wait.until(driver -> driver.findElement(By.xpath(passInput)));
+        WebElement enterPass=driver.findElement(By.xpath(passInput));
+        enterPass.sendKeys(password);
+
+
+        if (password.contentEquals("Welcome@1")) {
+            WebElement clickSubmit= driver.findElement(By.className(submitCTA));
+            clickSubmit.click();
+
+            wait.until(driver -> driver.findElement(By.xpath(userName)));
+            WebElement successMessage= driver.findElement(By.xpath(userName));
+            Assert.assertEquals(successMessage.getText(), "Hi, Syed");
+            successMessage.isDisplayed();
+
+        }else{
+            WebElement clickSubmit= driver.findElement(By.xpath(submitCTA));
+            clickSubmit.click();
+            WebElement invalidPass= driver.findElement(By.xpath(passError));
+            Assert.assertEquals(invalidPass.getText(), "Login failed. Please check your credentials.");
+        }
     }
+
+
 
 
     public void closeBrowser(){
