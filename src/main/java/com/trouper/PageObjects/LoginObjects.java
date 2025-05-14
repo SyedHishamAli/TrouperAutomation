@@ -19,8 +19,7 @@ public class LoginObjects implements Locators {
     public LoginObjects() {
         playwright=Playwright.create();
         browser=playwright.chromium().launch(new BrowserType.LaunchOptions()
-                .setHeadless(false)
-                .setArgs(List.of("--start-fullscreen")));
+                .setHeadless(false));
          page=browser.newPage();
          page.navigate("https://uat.trouper.com/");
 
