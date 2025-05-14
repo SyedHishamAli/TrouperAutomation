@@ -116,20 +116,19 @@ public class LoginObjects implements Locators{
         if (password.contentEquals("Welcome@1")) {
 //            WebElement clickSubmit= driver.findElement(By.className(submitCTA));
 //            clickSubmit.click();
-            page.click(submitCTA);
-            page.isVisible(userName);
-
 //            wait.until(driver -> driver.findElement(By.xpath(userName)));
 //            WebElement successMessage= driver.findElement(By.xpath(userName));
 //            Assert.assertEquals(successMessage.getText(), "Hi, Syed");
 //            successMessage.isDisplayed();
 
+            page.click(submitCTA);
+            page.isVisible(userName);
         }else{
 //            WebElement clickSubmit= driver.findElement(By.xpath(submitCTA));
 //            clickSubmit.click();
-            page.click(submitCTA);
 //            WebElement invalidPass= driver.findElement(By.xpath(passError));
 //            Assert.assertEquals(invalidPass.getText(), "Login failed. Please check your credentials.");
+            page.click(submitCTA);
             page.isVisible(passError);
         }
     }
