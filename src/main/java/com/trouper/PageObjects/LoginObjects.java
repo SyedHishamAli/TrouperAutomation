@@ -1,22 +1,13 @@
 package com.trouper.PageObjects;
 
+import com.Utilities.Locators;
 import com.microsoft.playwright.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 
-import java.time.Duration;
 import java.util.List;
 
 
-public class LoginObjects implements Locators{
+public class LoginObjects implements Locators {
 //    WebDriver driver;
 //    Wait<WebDriver> wait;
     Playwright playwright;
@@ -132,9 +123,6 @@ public class LoginObjects implements Locators{
             page.isVisible(passError);
         }
     }
-
-
-
 
     public void closeBrowser(){
 //        System.out.println("Closing the browser");

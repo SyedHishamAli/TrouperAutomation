@@ -1,7 +1,8 @@
-package com.trouper.PageObjects;
+package TestLoggedinUserFlow;
+import com.trouper.PageObjects.HomepageObjects;
 import org.testng.annotations.*;
 
-public class HomepageTest extends HomepageObjects{
+public class HomepageTest extends HomepageObjects {
     HomepageObjects hp=new HomepageObjects();
 
     @Test(description="To validate the Logo click", priority = 1, groups = {"Smoke"})

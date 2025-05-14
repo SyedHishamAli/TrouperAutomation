@@ -1,5 +1,6 @@
 package com.trouper.PageObjects;
 
+import com.Utilities.Locators;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ public class HomepageObjects implements Locators {
     WebDriver driver;
     WebDriverWait wait;
 
-    HomepageObjects(){
+    public HomepageObjects(){
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         driver.get("https://uat.trouper.com/");
@@ -25,7 +26,7 @@ public class HomepageObjects implements Locators {
          wait=new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    void  verifyLogo() throws InterruptedException {
+    public void  verifyLogo() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(logoElement)));
         WebElement logoClick=driver.findElement(By.xpath(logoElement));
         logoClick.click();
@@ -33,14 +34,14 @@ public class HomepageObjects implements Locators {
         Assert.assertEquals("https://uat.trouper.com/", driver.getCurrentUrl());
     }
 
-    void verifySearchBar() throws InterruptedException {
+    public void verifySearchBar() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(searchElement)));
         Thread.sleep(5000);
         WebElement searchInput= driver.findElement(By.xpath(searchElement));
         searchInput.sendKeys("Dog");
         searchInput.click();
     }
-    void verifyAspotbanner() throws InterruptedException {
+    public void verifyAspotbanner() throws InterruptedException {
         Thread.sleep(10000);
 //        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(aspotBanner1)));
         WebElement aspotbanner1=driver.findElement(By.xpath(aspotBanner1));
@@ -49,7 +50,7 @@ public class HomepageObjects implements Locators {
         WebElement aspotbanner2=driver.findElement(By.xpath(aspotBanner2));
         aspotbanner2.isDisplayed();
     }
-    void verifyTopcategories() throws InterruptedException {
+    public void verifyTopcategories() throws InterruptedException {
         Thread.sleep(10000);
         WebElement topCatrgoriesSection= driver.findElement(By.xpath(topCategories));
         topCatrgoriesSection.isDisplayed();
@@ -61,13 +62,13 @@ public class HomepageObjects implements Locators {
         Thread.sleep(3000);
         Assert.assertEquals("https://uat.trouper.com/cat/food/freeze-dried-food", driver.getCurrentUrl());
     }
-    void verifyloyaltyBanners() throws InterruptedException {
+    public void verifyloyaltyBanners() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(loyaltyBanner)));
         Thread.sleep(4000);
         WebElement Loyaltyban=driver.findElement(By.xpath(loyaltyBanner));
         Loyaltyban.isDisplayed();
     }
-    void recommendedProducts() throws InterruptedException {
+    public void recommendedProducts() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(recommendedProducts)));
         WebElement recProducts=driver.findElement(By.xpath(recommendedProducts));
         recProducts.isDisplayed();
@@ -79,12 +80,12 @@ public class HomepageObjects implements Locators {
         Thread.sleep(30000);
         Assert.assertEquals("https://uat.trouper.com/chip-chops-dog-treats-diced-chicken-70-gms", "https://uat.trouper.com/chip-chops-dog-treats-diced-chicken-70-gms");
     }
-    void verifyInsurance(){
+    public void verifyInsurance(){
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(insuranceBanner)));
         WebElement insbanner=driver.findElement(By.xpath(insuranceBanner));
         insbanner.isDisplayed();
     }
-    void closeBrowser(){
+    public void closeBrowser(){
         System.out.println("Closing the browser");
         driver.quit();
     }

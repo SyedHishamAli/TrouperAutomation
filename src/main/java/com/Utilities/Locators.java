@@ -1,4 +1,4 @@
-package com.trouper.PageObjects;
+package com.Utilities;
 
 public interface Locators {
 
@@ -34,4 +34,6 @@ public interface Locators {
     String passError="//p[contains(text(), \"Login failed. Please check your credentials.\")]";
 
     }
+
+    //----------------------------------------------------PLP----------------------------------------------------------------------
 
