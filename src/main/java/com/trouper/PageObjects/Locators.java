@@ -24,11 +24,11 @@ public interface Locators {
     String myaccountDropdown="//div[@class=\"myaccount_dropdown_wrapper\"]";
     String loginCTA="//a[@id=\"register_signin\"]";
     String loginPopup="//div[@class=\"Popup-Content \"]";
-    String emailInput="emaillogin";
+    String emailInput="//input[@id=\"emaillogin\"]";
     String continueCTA="//button[contains(text(), \"Continue\")]";
     String passwordToggle="//button[contains(text(), \"Log In with password\")]";
     String passInput="//input[@type=\"password\"]";
-    String submitCTA="SubmitButton";
+    String submitCTA="//button[@class=\"SubmitButton\"]";
     String userName ="//div[contains(text(), \"Hi, Syed \")]";
     String emailError="//p[contains(text(), \"Please check the email ID entered.\")]";
     String passError="//p[contains(text(), \"Login failed. Please check your credentials.\")]";
