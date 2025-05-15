@@ -1,9 +1,7 @@
 package PlaywrightAutomation.PlaywirghtDemo;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 import java.nio.file.Paths;
 
@@ -32,10 +30,17 @@ public class PlaywrightDemoTest {
 //            page.click("div.subjects-auto-complete__placeholder css-1wa3eu0-placeholder");
 //            page.fill("div.subjects-auto-complete__placeholder css-1wa3eu0-placeholder", "Data Engineering");
             page.click("text=Sports");
-            page.locator("#uploadPicture").setInputFiles(Paths.get("C:\\Users\\rahul.sharma\\Pictures\\Screenshots"));
+            page.locator("#uploadPicture").setInputFiles(Paths.get("C:\\Users\\rahul.sharma\\Pictures\\Screenshots\\Screenshot 2025-05-12 160210.png"));
+            page.fill("#currentAddress", "N11 ParkAvenue, Tampa, FL");
+            page.click("#state");
+            page.locator("#state").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+            page.click("div. css-1hwfws3");
+            page.click("#city");
+            page.locator("#city").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+            page.click("div. css-1hwfws3");
+            page.locator("button#submit").click();
 
-
-            browser.close();
+                    browser.close();
             }
     }
 }
