@@ -30,7 +30,7 @@ public class PlaywrightDemoTest {
 //            page.click("div.subjects-auto-complete__placeholder css-1wa3eu0-placeholder");
 //            page.fill("div.subjects-auto-complete__placeholder css-1wa3eu0-placeholder", "Data Engineering");
             page.click("text=Sports");
-            page.locator("#uploadPicture").setInputFiles(Paths.get("C:\\Users\\rahul.sharma\\Pictures\\Screenshots\\Screenshot 2025-05-12 160210.png"));
+            page.locator("#uploadPicture").setInputFiles(Paths.get("C:\\Users\\rahul.sharma\\Pictures\\Screenshots\\Screenshot 2025-05-12 160346.png"));
             page.fill("#currentAddress", "N11 ParkAvenue, Tampa, FL");
 //            page.click("#state");
 //            page.locator("#state").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
