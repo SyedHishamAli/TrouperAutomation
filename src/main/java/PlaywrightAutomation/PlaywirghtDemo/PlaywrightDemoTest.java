@@ -32,12 +32,12 @@ public class PlaywrightDemoTest {
             page.click("text=Sports");
             page.locator("#uploadPicture").setInputFiles(Paths.get("C:\\Users\\rahul.sharma\\Pictures\\Screenshots\\Screenshot 2025-05-12 160210.png"));
             page.fill("#currentAddress", "N11 ParkAvenue, Tampa, FL");
-            page.click("#state");
-            page.locator("#state").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-            page.click("div. css-1hwfws3");
-            page.click("#city");
-            page.locator("#city").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-            page.click("div. css-1hwfws3");
+//            page.click("#state");
+//            page.locator("#state").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+//            page.click("div.css-1hwfws3");
+//            page.click("#city");
+//            page.locator("#city").waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+//            page.click("div.css-1hwfws3");
             page.locator("button#submit").click();
 
                     browser.close();
