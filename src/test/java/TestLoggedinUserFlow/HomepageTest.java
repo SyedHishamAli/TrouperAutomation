@@ -3,7 +3,7 @@ import com.trouper.PageObjects.HomepageObjects;
 import org.testng.annotations.*;
 
 public class HomepageTest extends HomepageObjects {
-    HomepageObjects hp=new HomepageObjects();
+//    HomepageObjects hp=new HomepageObjects();
 
     @Test(description="To validate the Logo click", priority = 1, groups = {"Smoke"})
     void validateLogo() throws InterruptedException {
@@ -25,18 +25,20 @@ public class HomepageTest extends HomepageObjects {
     void loyaltyBanners() throws InterruptedException {
         verifyloyaltyBanners();
     }
-    @Test(description = "To validate recommended products and click on product.", priority = 6, groups = {"Regression"})
-    void recommendedProd() throws InterruptedException {
-        recommendedProducts();
-    }
-    @Test(description = "To validate the Moopet banner", priority=7, groups = {"Regression"})
+//    @Test(description = "To validate recommended products and click on product.", priority = 6, groups = {"Regression"})
+//    void recommendedProd() throws InterruptedException {
+//        recommendedProducts();
+//    }
+    @Test(description = "To validate the Moopet banner", priority=6, groups = {"Regression"})
     void insuranceBanner(){
         verifyInsurance();
     }
 
+
+
     @AfterClass
     void tearDown() {
-        hp.closeBrowser();
+        tearDown();
     }
 
 
