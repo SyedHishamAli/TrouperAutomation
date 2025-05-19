@@ -33,9 +33,6 @@ public class HomepageTest extends HomepageObjects {
     void insuranceBanner(){
         verifyInsurance();
     }
-
-
-
     @AfterClass
     void tearDown() {
         tearDown();
