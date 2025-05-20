@@ -35,7 +35,7 @@ public class HomepageTest extends HomepageObjects {
     }
     @AfterClass
     void tearDown() {
-        tearDown();
+        closeBrowser();
     }
 
 
