@@ -1,4 +1,4 @@
-name: main
+name: Playwright Java Tests
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -27,11 +27,12 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven
 
-      - name: Install Playwright CLI dependencies
+      - name: Install Playwright dependencies (Linux)
         run: |
           sudo apt-get update
           sudo apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libxss1 libasound2 libgbm-dev libxshmfence-dev libxrandr2
 
-      - name: Run Tests with Maven
+      - name: Run Playwright Java Tests
         run: mvn test
+
 
